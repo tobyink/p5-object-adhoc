@@ -2,13 +2,13 @@
 
 @prefix : <http://usefulinc.com/ns/doap#>.
 
-`Object-Instant`
+`Object-Adhoc`
 	:programming-language "Perl" ;
 	:shortdesc            "make objects without the hassle of defining a class first";
-	:homepage             <https://metacpan.org/release/Object-Instant>;
-	:download-page        <https://metacpan.org/release/Object-Instant>;
-	:bug-database         <http://rt.cpan.org/Dist/Display.html?Queue=Object-Instant>;
-	:repository           [ a :GitRepository; :browse <https://github.com/tobyink/p5-object-instant> ];
+	:homepage             <https://metacpan.org/release/Object-Adhoc>;
+	:download-page        <https://metacpan.org/release/Object-Adhoc>;
+	:bug-database         <http://rt.cpan.org/Dist/Display.html?Queue=Object-Adhoc>;
+	:repository           [ a :GitRepository; :browse <https://github.com/tobyink/p5-object-adhoc> ];
 	:created              2020-01-24;
 	:license              <http://dev.perl.org/licenses/>;
 	:maintainer           cpan:TOBYINK;

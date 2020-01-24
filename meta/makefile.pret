@@ -2,7 +2,7 @@
 
 @prefix : <http://ontologi.es/doap-deps#>.
 
-`Object-Instant`
+`Object-Adhoc`
 	:runtime-requirement    [ :on "perl 5.008000"^^:CpanId ];
 	:runtime-requirement    [ :on "Exporter::Shiny 1.002000"^^:CpanId ];
 	:runtime-recommendation [ :on "Class::XSAccessor"^^:CpanId ];

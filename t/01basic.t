@@ -4,7 +4,7 @@
 
 =head1 PURPOSE
 
-Test that Object::Instant works.
+Test that Object::Adhoc works.
 
 =head1 AUTHOR
 
@@ -24,7 +24,7 @@ use strict;
 use warnings;
 use Test::More;
 
-use Object::Instant;
+use Object::Adhoc;
 
 my $o1 = object { name => 'Alice' };
 my $o2 = object { name => 'Bob' };
@@ -45,4 +45,3 @@ is($o3->age, undef);
 ok(!$o3->has_age);
 
 done_testing;
-

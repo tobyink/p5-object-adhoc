@@ -2,7 +2,7 @@ use 5.008;
 use strict;
 use warnings;
 
-package Object::Instant;
+package Object::Adhoc;
 
 our $AUTHORITY = 'cpan:TOBYINK';
 our $VERSION   = '0.001';
@@ -64,11 +64,11 @@ sub make_class {
 		my $code = "package $class;\n";
 		while (my ($predicate, $key) = each %predicates) {
 			my $qkey = B::perlstring($key);
-			$code .= "sub $predicate :method { &Object::Instant::_usage if \@_ > 1; exists \$_[0]{$qkey} }\n";
+			$code .= "sub $predicate :method { &Object::Adhoc::_usage if \@_ > 1; exists \$_[0]{$qkey} }\n";
 		}
 		while (my ($getter, $key) = each %getters) {
 			my $qkey = B::perlstring($key);
-			$code .= "sub $getter :method { &Object::Instant::_usage if \@_ > 1; \$_[0]{$qkey} }\n";
+			$code .= "sub $getter :method { &Object::Adhoc::_usage if \@_ > 1; \$_[0]{$qkey} }\n";
 		}
 		$code .= "1;\n";
 		eval($code) or do { require Carp; Carp::croak($@) };
@@ -94,11 +94,11 @@ __END__
 
 =head1 NAME
 
-Object::Instant - make objects without the hassle of defining a class first
+Object::Adhoc - make objects without the hassle of defining a class first
 
 =head1 SYNOPSIS
 
- use Object::Instant;
+ use Object::Adhoc;
  
  my $object = object { name => 'Alice' };
  
@@ -108,7 +108,7 @@ Object::Instant - make objects without the hassle of defining a class first
 
 =head1 DESCRIPTION
 
-Object::Instant is designed to be an alternative to returning hashrefs
+Object::Adhoc is designed to be an alternative to returning hashrefs
 from functions and methods. It's similar to L<Object::Anon> but doesn't
 do anything special with references or overloading.
 
@@ -125,17 +125,17 @@ predicate (C<has_name> in the SYNOPSIS) method are created.
 
 Objects are read-only.
 
-Note that Object::Instant does not make a clone of C<< %data >> before
+Note that Object::Adhoc does not make a clone of C<< %data >> before
 blessing it; it is blessed directly.
 
 =item C<< object(\%data) >>
 
-If C<< @keys >> is not supplied, Object::Instant will do this:
+If C<< @keys >> is not supplied, Object::Adhoc will do this:
 
   @keys = keys(%data);
 
 If there are some keys that will not always be present in your data,
-passing Object::Instant a full list of every possible key is strongly
+passing Object::Adhoc a full list of every possible key is strongly
 recommended!
 
 =item C<< make_class(\@keys) >>
@@ -148,10 +148,10 @@ The class won't have a C<new> method; if you need to create objects, just
 directly bless hashrefs into it.
 
 It is possible to use this in an C<< @ISA >>, though that's not really
-the intention of Object::Instant.
+the intention of Object::Adhoc.
 
   package My::Class {
-    use Object::Instant qw(make_class);
+    use Object::Adhoc qw(make_class);
     our @ISA = make_class[qw/ foo bar baz /];
     sub new {
       my ($class, $data) = (shift, @_);
@@ -178,7 +178,7 @@ Given the following:
     has_name => 1,
   };
 
-Object::Instant doesn't know if you want the C<has_name> method to be a
+Object::Adhoc doesn't know if you want the C<has_name> method to be a
 getter for the "has_name" attribute, or a predicate for the "name" attribute.
 The getter wins, but it will issue a warning.
 
@@ -189,13 +189,13 @@ For example:
 
   my $alice = object { 'given name' => 'Alice' };
 
-Perl methods cannot contain spaces, so Object::Instant refuses to
+Perl methods cannot contain spaces, so Object::Adhoc refuses to
 create the method and gives you a warning. (Technically it is possible
 to create and call methods containing spaces, but it's fiddly.)
 
 =head3 Usage %s(self)
 
-The methods defined by Object::Instant expect to be invoked with
+The methods defined by Object::Adhoc expect to be invoked with
 a blessed object and no other parameters.
 
   my $alice = object { 'name' => 'Alice' };
@@ -206,7 +206,7 @@ This throws an exception rather than just printing a warning.
 =head1 BUGS
 
 Please report any bugs to
-L<http://rt.cpan.org/Dist/Display.html?Queue=Object-Instant>.
+L<http://rt.cpan.org/Dist/Display.html?Queue=Object-Adhoc>.
 
 =head1 SEE ALSO
 
