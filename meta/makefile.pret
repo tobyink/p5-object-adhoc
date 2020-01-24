@@ -1,0 +1,12 @@
+# This file provides instructions for packaging.
+
+@prefix : <http://ontologi.es/doap-deps#>.
+
+`Object-Instant`
+	:runtime-requirement    [ :on "perl 5.008000"^^:CpanId ];
+	:runtime-requirement    [ :on "Exporter::Shiny 1.002000"^^:CpanId ];
+	:runtime-recommendation [ :on "Class::XSAccessor"^^:CpanId ];
+	:test-requirement       [ :on "Test::More 0.96"^^:CpanId ];
+	:develop-recommendation [ :on "Dist::Inkt 0.001"^^:CpanId ];
+	.
+
