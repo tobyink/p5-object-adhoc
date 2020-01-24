@@ -4,3 +4,8 @@
 	issued  2020-01-24;
 	label   "Initial release".
 
+`Object-Adhoc 0.002 cpan:TOBYINK`
+	issued  2020-01-24;
+	changeset [
+		item "Rename Object::Instant to Object::Adhoc."^^Packaging;
+	].
