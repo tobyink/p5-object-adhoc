@@ -116,6 +116,7 @@ sub _usage {
 
 sub _DOES {
 	return !!1 if $_[1] eq __PACKAGE__;
+	return !!1 if $_[1] eq 'HASH';
 	shift->isa(@_);
 }
 
