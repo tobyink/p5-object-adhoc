@@ -5,7 +5,7 @@ use warnings;
 package Object::Adhoc;
 
 our $AUTHORITY = 'cpan:TOBYINK';
-our $VERSION   = '0.002';
+our $VERSION   = '0.003';
 
 use Hash::Util qw(lock_ref_keys);
 use Digest::MD5 qw(md5_hex);

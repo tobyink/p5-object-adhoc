@@ -9,3 +9,13 @@
 	changeset [
 		item "Rename Object::Instant to Object::Adhoc."^^Packaging;
 	].
+
+`Object-Adhoc 0.003 cpan:TOBYINK`
+	issued  2020-03-06;
+	changeset [
+		item "Quote method names in warning messages."^^Change;
+		item "Refuse to create getter methods that would override standard methods like `can`, `isa`, and `DOES`."^^Change;
+		item "Objects created using Object::Adhoc will now return true for $obj->DOES('Object::Adhoc') and $obj->DOES('HASH')."^^Change;
+		item "Objects created using Object::Adhoc will now report Object::Adhoc's version number when $obj->VERSION is called instead of returning undef."^^Change;
+		item "Fix a warning in test suite."^^Tests;
+	].
