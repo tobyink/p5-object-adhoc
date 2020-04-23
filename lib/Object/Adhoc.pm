@@ -87,7 +87,7 @@ sub make_class {
 		my $code = "package $class;\n";
 		while (my ($predicate, $key) = each %predicates) {
 			my $qkey = B::perlstring($key);
-			$code .= "sub $predicate :method { &Object::Adhoc::_usage if \@_ > 1; exists \$_[0]{$qkey} }\n";
+			$code .= "sub $predicate :method { &Object::Adhoc::_usage if \@_ > 1; CORE::exists \$_[0]{$qkey} }\n";
 		}
 		while (my ($getter, $key) = each %getters) {
 			my $qkey = B::perlstring($key);
