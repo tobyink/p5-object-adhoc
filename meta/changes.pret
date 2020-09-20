@@ -19,3 +19,9 @@
 		item "Objects created using Object::Adhoc will now report Object::Adhoc's version number when $obj->VERSION is called instead of returning undef."^^Change;
 		item "Fix a warning in test suite."^^Tests;
 	].
+
+`Object-Adhoc 0.004 cpan:TOBYINK`
+	issued  2020-09-20;
+	changeset [
+		item "Cope with old versions of Perl where Hash::Util doesn't export lock_ref_keys()."^^Bugfix;
+	].
