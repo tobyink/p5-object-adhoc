@@ -7,8 +7,7 @@ package Object::Adhoc;
 our $AUTHORITY = 'cpan:TOBYINK';
 our $VERSION   = '0.003';
 
-use Hash::Util qw(lock_ref_keys);
-use Digest::MD5 qw(md5_hex);
+use Digest::MD5 qw( md5_hex );
 use Exporter::Shiny qw( object make_class );
 our @EXPORT = qw( object );
 
@@ -16,6 +15,12 @@ BEGIN {
 	*USE_XS = eval 'use Class::XSAccessor 1.19 (); 1'
 		? sub () { !!1 }
 		: sub () { !!0 };
+};
+
+BEGIN {
+	require Hash::Util;
+	*lock_ref_keys = 'Hash::Util'->can('lock_ref_keys')
+		|| sub { return; };
 };
 
 our $RESERVED_REGEXP;
