@@ -25,3 +25,9 @@
 	changeset [
 		item "Cope with old versions of Perl where Hash::Util doesn't export lock_ref_keys()."^^Bugfix;
 	].
+
+`Object-Adhoc 0.005 cpan:TOBYINK`
+	issued  2020-09-27;
+	changeset [
+		item "Comparison with similar modules in SEE ALSO section."^^Documentation;
+	].
