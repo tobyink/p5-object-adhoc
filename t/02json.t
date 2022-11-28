@@ -4,7 +4,7 @@
 
 =head1 PURPOSE
 
-Test that Object::Adhoc works.
+Test that Object::Adhoc objects can be passed through JSON encoders.
 
 =head1 AUTHOR
 
@@ -12,7 +12,7 @@ Toby Inkster E<lt>tobyink@cpan.orgE<gt>.
 
 =head1 COPYRIGHT AND LICENCE
 
-This software is copyright (c) 2020 by Toby Inkster.
+This software is copyright (c) 2022 by Toby Inkster.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
@@ -24,21 +24,12 @@ use warnings;
 use Test::More;
 
 use Object::Adhoc;
+use JSON::PP;
 
-my $o1 = object { name => 'Alice' };
-my $o2 = object { name => 'Bob' };
+my $obj  = object { foo => 1, bar => 2 };
+my $json = 'JSON::PP'->new->convert_blessed( 1 )->encode( $obj );
 
-ok($o1->has_name);
-is($o1->name, 'Alice');
-
-is(ref($o1), ref($o2));
-
-my $o3 = object { name => 'Carol' }, [qw/ name age /];
-
-isnt(ref($o1), ref($o3));
-
-is($o3->age, undef);
-
-ok(!$o3->has_age);
+like $json, qr/foo/;
+like $json, qr/bar/;
 
 done_testing;

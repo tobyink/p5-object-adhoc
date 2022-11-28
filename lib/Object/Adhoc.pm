@@ -35,6 +35,7 @@ our @RESERVED_METHODS = qw(
 	AUTOLOAD
 	isa DOES does can VERSION
 	meta new
+	TO_JSON
 );
 #
 # Note that tie-related stuff isn't on the list of reserved methods
@@ -107,6 +108,7 @@ sub make_class {
 		*{"$class\::DOES"}     = \&_DOES;
 		*{"$class\::does"}     = \&_DOES;
 		*{"$class\::VERSION"}  = \$VERSION;
+		*{"$class\::TO_JSON"}  = \&_TO_JSON;
 	};
 	
 	$made{$joined} = $class;
@@ -123,6 +125,11 @@ sub _DOES {
 	return !!1 if $_[1] eq __PACKAGE__;
 	return !!1 if $_[1] eq 'HASH';
 	shift->isa(@_);
+}
+
+sub _TO_JSON {
+	my %hash = %{ +shift };
+	\%hash;
 }
 
 1;
