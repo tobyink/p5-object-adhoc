@@ -258,7 +258,7 @@ This throws an exception rather than just printing a warning.
 =head1 BUGS
 
 Please report any bugs to
-L<http://rt.cpan.org/Dist/Display.html?Queue=Object-Adhoc>.
+L<https://github.com/tobyink/p5-object-adhoc/issues>.
 
 =head1 SEE ALSO
 
@@ -318,7 +318,7 @@ Toby Inkster E<lt>tobyink@cpan.orgE<gt>.
 
 =head1 COPYRIGHT AND LICENCE
 
-This software is copyright (c) 2020 by Toby Inkster.
+This software is copyright (c) 2020-2022 by Toby Inkster.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
