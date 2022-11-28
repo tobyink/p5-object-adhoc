@@ -31,3 +31,9 @@
 	changeset [
 		item "Comparison with similar modules in SEE ALSO section."^^Documentation;
 	].
+
+`Object-Adhoc 0.006 cpan:TOBYINK`
+	issued  2022-11-28;
+	changeset [
+		item "Add a TO_JSON method to genenerated classes."^^Addition;
+	].

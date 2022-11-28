@@ -5,7 +5,7 @@ use warnings;
 package Object::Adhoc;
 
 our $AUTHORITY = 'cpan:TOBYINK';
-our $VERSION   = '0.005';
+our $VERSION   = '0.006';
 
 use Digest::MD5 qw( md5_hex );
 use Exporter::Shiny qw( object make_class );
