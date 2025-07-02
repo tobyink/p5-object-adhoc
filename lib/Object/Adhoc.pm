@@ -262,6 +262,10 @@ The following options are supported:
 
 Number of levels to recurse. By default, 0.
 
+=item C<keys>
+
+C<< object(\%data, \@keys) >> is a shortcut for C<< object(\%data, keys => \@keys) >>.
+
 =back
 
 =item C<< make_class(\@keys, %opts) >>
@@ -287,13 +291,15 @@ It is possible to use this in an C<< @ISA >>, though that's not really
 the intention of Object::Adhoc.
 
   package My::Class {
-    use Object::Adhoc;
-    our @ISA = Object::Adhoc::make_class [qw/ foo bar baz /], ctor => 1;
+    use Object::Adhoc 'make_class';
+    our @ISA = make_class [qw/ foo bar baz /], ctor => 1;
     sub foobar {
       my ($self) = (shift);
       $self->foo . $self->bar;
     }
   }
+  
+  say My::Class->new( foo => "Hello", bar => "World" )->foobar;
 
 C<make_class> is not exported by default.
 
