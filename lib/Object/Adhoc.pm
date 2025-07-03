@@ -5,7 +5,7 @@ use warnings;
 package Object::Adhoc;
 
 our $AUTHORITY = 'cpan:TOBYINK';
-our $VERSION   = '0.007';
+our $VERSION   = '0.008';
 
 use Digest::MD5 qw( md5_hex );
 use Scalar::Util qw( refaddr );
